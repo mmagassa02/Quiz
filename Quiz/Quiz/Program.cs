@@ -5,6 +5,13 @@ namespace Quiz
 {
     class Program
     {
+
+ /*       public static int AskQuestion()
+        {
+            int score;
+            return score;
+        }*/
+
         static void Main(string[] args)
         {
             // Variables
@@ -50,12 +57,13 @@ namespace Quiz
                         Console.WriteLine($"Faux. La réponse était {nb.Value}\n");
                 }
             }
+
             //Fin du quiz et affichage du score
             Console.WriteLine("Récapitulatif du quiz");
-            Console.WriteLine($"{user}, votre score est de {scoreuser} sur {question.Count}");
+            Console.WriteLine($"{user}, vous avez obtenu {scoreuser}/{question.Count}");
         
-        }
 
+        }
         
     }
 }
