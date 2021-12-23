@@ -21,7 +21,7 @@ namespace Quiz
             List<Question> questions = new List<Question>()
             {
                     new Question("1 Lequel de ces pays est situé en Europe?\nFrance\t\tSingapour\tLiechtenstein", "France Liechtenstein"),
-                    new Question("2 Lequel de ces monuments est situé en Italie?\nColisée\t\tTour Eiffel\tArc de triomphe", "Colisée"),
+                    new Question("2 Lequel de ces monuments est situé en Italie?\nColisée\tTour eiffel\tArc de triomphe", "Colisée"),
                     new Question("3 En quelle année la France a gagné une coupe du monde de football?\n1984\t1998\t2018", "1998 2018"),
                     new Question("4 Laquelle de ces capitales est située en Asie?\nTripoli\t\tErevan\tSéoul", "Séoul"),
                     new Question("5 Quelle est la capitale du Canada?\nOttawa\tToronto\tVancouver", "Ottawa"),
@@ -41,18 +41,25 @@ namespace Quiz
 
         public static void AskQuestion(List<Question> questionList)
         {
+            string[] multipleChoice;
             int score = 0;
             string userAnswer;
+            bool isValid = false; // Vaudra true si la réponse est bonne
             foreach (var nb in questionList)
             {
                 Console.WriteLine(nb.Intitule);
                 userAnswer = Console.ReadLine();
 
+                multipleChoice = nb.Reponse.Split(" ");
 
-
-
-                if (nb.Reponse.Contains(userAnswer))
+                foreach(var choice in multipleChoice)
                 {
+                    if(choice == userAnswer)// Si la saisie correspond à au moins une réponse possible
+                        isValid = true; 
+                }
+                if (isValid)
+                {
+                    //Bonne réponse donc coloration en vert
                     Console.ForegroundColor = ConsoleColor.Green;
                     Console.WriteLine("Bonne réponse\n");
                     score++;
@@ -60,6 +67,7 @@ namespace Quiz
                 }
                 else
                 {
+                    //Bonne réponse donc coloration en rouge
                     Console.ForegroundColor = ConsoleColor.Red;
                     Console.WriteLine("Mauvaise réponse\n");
                     Console.ForegroundColor = ConsoleColor.White;
