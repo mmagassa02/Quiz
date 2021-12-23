@@ -6,17 +6,14 @@ namespace Quiz
 {
     class Program
     {
-        /*     public static void RecuperationFichier(Question question)
-             {
-
-             }*/
+        // Initialisation du quiz
         public static void Init()
         {
             string saisie;
             try
             {
                 Debut:
-                Console.WriteLine("Veuillez saisir un ok pour commencer ou saisissez un code pour ajouter une question");
+                Console.WriteLine("Veuillez saisir \"ok\" pour commencer ou saisissez un code pour ajouter une question");
                 saisie = Console.ReadLine();
                 if(saisie == "ok") 
                 {
@@ -36,7 +33,7 @@ namespace Quiz
                     AskQuestion(questions);
                 }else if(saisie == "mmagassa")
                 {
-                    if (AddQuestionFile() == true)
+                    if (AddQuestionFile())
                         goto Debut;
                 }
 
@@ -49,6 +46,7 @@ namespace Quiz
             AskQuestion(questions);*/
         }
 
+        // Ajout d'une question dans un fichier
         public static bool AddQuestionFile()
         {
             bool ajout = false;
@@ -73,7 +71,7 @@ namespace Quiz
 
 
 
-
+        //Affiche les questions à l'utilisateur
         public static void AskQuestion(List<Question> questionList)
         {
             string[] multipleChoice;
@@ -114,6 +112,7 @@ namespace Quiz
         }
 
 
+        //Affichage du score final de l'utilisateur
         public static void AffichageScore(int score, int nbQuestions)
         {
             Console.WriteLine($"Vous avez eu bon à {score} questions sur {nbQuestions}");
@@ -124,8 +123,11 @@ namespace Quiz
         {
             Init();
 
-            // Variables
+            // 
             /*
+             * Première version
+             * 
+             * 
             //Un dictionnaire <string,string> qui contient d'un coté la question avec les propositions et de l'autre coté les réponses pour comparer
             Dictionary<string, string> question = new Dictionary<string, string>();
             question.Add("1 Lequel de ces pays est situé en Europe?\nFrance\t\tSingapour\tLiechtenstein", "France Liechtenstein");
