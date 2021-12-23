@@ -46,15 +46,25 @@ namespace Quiz
                 // Les réponses du dictionnaire contiennent la saisie de l'utilisateur
                 if (nb.Value.Contains(userAnswer))
                 {
+                    Console.ForegroundColor = ConsoleColor.Green; 
                     Console.WriteLine("Bonne réponse\n");
+                    Console.ForegroundColor = ConsoleColor.White; //On remet la console en blanc pour éviter de colorer la question suivante
                     scoreuser += 1;
                 }
                 else
                 {
                     if (nb.Value.Contains(" "))
+                    {
+                        Console.ForegroundColor = ConsoleColor.Red;
                         Console.WriteLine($"Faux. Les réponses étaient {nb.Value}\n");
+                        Console.ForegroundColor = ConsoleColor.White; //On remet la console en blanc pour éviter de colorer la question suivante
+                    }
                     else
+                    {
+                        Console.ForegroundColor = ConsoleColor.Red;
                         Console.WriteLine($"Faux. La réponse était {nb.Value}\n");
+                        Console.ForegroundColor = ConsoleColor.White; //On remet la console en blanc pour éviter de colorer la question suivante
+                    }
                 }
             }
 
