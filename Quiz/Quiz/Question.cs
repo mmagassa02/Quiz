@@ -15,9 +15,6 @@ namespace Quiz
         private string _reponse;
         public string Reponse { get => _reponse; set => _reponse = value; }
 
-        private string _userAnswer;
-        public string UserAnswer { get => _userAnswer; set => _userAnswer = value; }
-
 
         //Constructeur avec arguments
         public Question(string sentence, string answer)
